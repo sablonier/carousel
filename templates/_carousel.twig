@@ -1,0 +1,14 @@
+{% setcontent carousel = record %}
+
+{% if carousel.repeater %}
+    {% for field in carousel.repeater %}
+        {# Title comes as 'text' #}
+        {{ field.get('repeattitle') }}
+        {# Don't know why I need to add .file here in repeaters #}
+        {{ field.get('repeatimage').file }}
+        {# Have to pass this raw? #}
+        {{ field.get('repeatcontent')|raw }}
+    {% endfor %}
+{% endif %}
+
+

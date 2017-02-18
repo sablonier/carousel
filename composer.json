@@ -1,0 +1,31 @@
+{
+    "name": "sablonier/bootstrap4carousel",
+    "description": "",
+    "type": "bolt-extension",
+    "require": {
+        "bolt/bolt": "^3.0.0"
+    },
+    "keywords": [
+      "none",
+      "nothing",
+      "nope",
+      "nix"
+    ],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Yves Sablonier",
+            "email": "yves@sablonier.ch"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "sablonier\\bootstrap4carousel\\": "src"
+        }
+    },
+    "extra": {
+        "bolt-class": "sablonier\\bootstrap4carousel\\Bootstrap4CarouselExtension",
+        "bolt-assets": "web",
+        "bolt-icon": "web/carousel-icon.png"
+    }
+}
