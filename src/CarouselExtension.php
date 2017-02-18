@@ -32,15 +32,22 @@ class CarouselExtension extends SimpleExtension
      *
      * @return carousel
      */
-    public function carouselFunction($record)
+    public function carouselFunction($record, $start, $nav, $bullets, $titel, $caption)
     {   
+		
+	    $framework = ('bootstrap4');
 
 		$context = [
-            'record' => $record
+            'record' => $record,
+            'start' => $start,
+            'nav' => $nav,
+            'bullets' => $bullets,
+            'titel' => $titel,
+            'caption' => $caption
         ];
         
-        $carousel = $this->renderTemplate('_carousel.twig', $context);
-        /* Never ever as return? */
+        $carousel = $this->renderTemplate('_carousel_bootstrap4.twig', $context);
+
         echo $carousel;
 
     }
