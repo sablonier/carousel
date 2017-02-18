@@ -66,8 +66,8 @@ class CarouselExtension extends SimpleExtension
                 $carousel = $this->renderTemplate('_carousel_foundation6.twig', $context);
                 break;
             default:
-            echo "Not a valid configuration for this extension. You need to configure 'framework:' 
-                  in 'config.yml' of carousel extension. Options are: bootstrap4, foundation6, purecss." ;
+            echo "Not a valid configuration for getting the carousel. You need to configure 'render' 
+                  in the extension configuration (Dashboard->Extend->Carousel->Edit configuration." ;
         }
 
         echo $carousel;
