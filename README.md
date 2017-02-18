@@ -1,4 +1,4 @@
-Bootstrap 4 Carousel
+Carousel for Bolt CMS
 ======================
 
 Usage {{ carousel(record,) }}

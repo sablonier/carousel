@@ -1,5 +1,5 @@
 {
-    "name": "sablonier/bootstrap4carousel",
+    "name": "sablonier/carousel",
     "description": "",
     "type": "bolt-extension",
     "require": {
@@ -20,11 +20,11 @@
     ],
     "autoload": {
         "psr-4": {
-            "sablonier\\bootstrap4carousel\\": "src"
+            "sablonier\\carousel\\": "src"
         }
     },
     "extra": {
-        "bolt-class": "sablonier\\bootstrap4carousel\\Bootstrap4CarouselExtension",
+        "bolt-class": "sablonier\\carousel\\CarouselExtension",
         "bolt-assets": "web",
         "bolt-icon": "web/carousel-icon.png"
     }

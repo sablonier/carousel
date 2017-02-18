@@ -1,10 +1,10 @@
 <?php
 
-namespace sablonier\bootstrap4carousel;
+namespace sablonier\carousel;
 
 use Bolt\Extension\SimpleExtension;
 
-class Bootstrap4CarouselExtension extends SimpleExtension
+class CarouselExtension extends SimpleExtension
 {
 
     /**
