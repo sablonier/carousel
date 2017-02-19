@@ -3,7 +3,7 @@
 {% setcontent carousel = options.content %}
 
 <div class="d-flex p-2">
-<div id="carousel" class="carousel{% if options.slide %} slide{% endif %}">
+<div id="carousel" data-interval="{% if options.autoplay %}5000{% else %}false{% endif %}" class="carousel{% if options.slide %} slide{% endif %}">
   <div class="carousel-inner" role="listbox">
     {% set active = options.start-1 %}
     

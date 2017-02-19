@@ -4,7 +4,7 @@
 
 {% set active = options.start-1 %}
 
-<div class="orbit" role="region" aria-label="Carousel" data-orbit>
+<div class="orbit" role="region" data-auto-play="{% if options.autoplay %}true{% else %}false{% endif %}" aria-label="Carousel" data-orbit>
   <ul class="orbit-container">
     
     {# navigation #}
