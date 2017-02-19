@@ -1,6 +1,11 @@
 Carousel for Bolt CMS
 =====================
 
+Example configuration:
+
+render:
+    framework: foundation6
+
 Example usage:
 
 {{ carousel({ content: '/showcase/10', 
