@@ -39,7 +39,6 @@ class CarouselExtension extends SimpleExtension
 
         $context = [
             'options' => $options,
-            'type' => $config['render']['type']
         ];
         
         switch ($config['render']['framework']) {
