@@ -1,17 +1,19 @@
 {% if type == "repeater" %}
 
-{% setcontent carousel = options.record %}
+{% setcontent carousel = options.content %}
+
 <div class="d-flex p-2">
 <div id="carousel" class="carousel">
   <div class="carousel-inner" role="listbox">
     {% set active = options.start-1 %}
     
     {# items #}
-    {% for field in carousel.repeater %}
-    <div class="carousel-item{% if active %} active{% endif %}">
+    {% set active = 0 %}
+    {% for field in attribute(carousel, ''~options.repeatername) %}
+    <div class="carousel-item{% if active == options.start %} active{% endif %}">
       
       {# image #}
-      <img class="d-block img-fluid" src="/files/{{ field.get('repeatimage').file }}" alt="First slide" width="100%">
+      <img class="d-block img-fluid" src="/files/{{ field.get('repeatimage').file }}" alt="{{ field.get('repeattitle') }}" width="100%">
       
       {# title and caption #}
       {% if options.title or options.caption %}
@@ -25,7 +27,7 @@
       </div>
       {% endif %}
     </div>
-    {% set active = active+1 %}
+    {% set active = active + 1 %}
     {% endfor %}
     
     {# nav #}

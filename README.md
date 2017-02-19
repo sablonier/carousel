@@ -1,6 +1,14 @@
 Carousel for Bolt CMS
 ======================
 
-Usage:
-{{ carousel({ record: '/showcase/10', start: 0, navigation: true, title: true, caption: true }) }}
+Example usage:
 
+{{ carousel({ record: '/showcase/10', 
+                    repeater: 'repeater', 
+                    title: 'repeattitle', 
+                    caption: 'repeatcontent', 
+                    start: 0, 
+                    navigation: true, 
+                    indicator: true 
+                 })
+}}
