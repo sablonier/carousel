@@ -1,7 +1,5 @@
 {% if type == "repeater" %}
 
-{{ dump(options) }}
-
 {% setcontent carousel = options.record %}
 <div class="d-flex p-2">
 <div id="carousel" class="carousel">
@@ -11,8 +9,10 @@
     {# items #}
     {% for field in carousel.repeater %}
     <div class="carousel-item{% if active %} active{% endif %}">
+      
       {# image #}
       <img class="d-block img-fluid" src="/files/{{ field.get('repeatimage').file }}" alt="First slide" width="100%">
+      
       {# title and caption #}
       {% if options.title or options.caption %}
       <div class="carousel-caption d-none d-md-block">

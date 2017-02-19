@@ -26,15 +26,6 @@ class CarouselExtension extends SimpleExtension
             'templates'
         ];
     }
-    
-    //protected function getDefaultConfig()
-    //{
-    //    return [
-    //        'config' => [
-    //            'framework' => 'bootstrap4',
-    //        ]
-    //    ];
-    //}
 
     /**
      * Render and return the twig file templates/_carousel.twig
@@ -55,15 +46,12 @@ class CarouselExtension extends SimpleExtension
             case 'bootstrap4':
                 $carousel = $this->renderTemplate('_carousel_bootstrap4.twig', $context);
                 break;
-            case 'foundation6':
+            /*case 'foundation6':
                 $carousel = $this->renderTemplate('_carousel_foundation6.twig', $context);
                 break;
             case 'purecss':
                 $carousel = $this->renderTemplate('_carousel_purecss.twig', $context);
-                break;
-            default:
-            echo "Not a valid configuration for getting the carousel. You need to configure 'render' 
-                  in the extension configuration (Dashboard->Extend->Carousel->Edit configuration." ;
+                break;*/
         }
 
         echo $carousel;
