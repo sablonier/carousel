@@ -1,16 +1,35 @@
-{% setcontent carousel = record %}
-
 {% if type == "repeater" %}
+
+{{ dump(options) }}
+
+{% setcontent carousel = options.record %}
 <div class="d-flex p-2">
-<div id="carousel" class="carousel slide">
+<div id="carousel" class="carousel">
   <div class="carousel-inner" role="listbox">
-    {% set active = start-1 %}
+    {% set active = options.start-1 %}
+    
+    {# items #}
     {% for field in carousel.repeater %}
     <div class="carousel-item{% if active %} active{% endif %}">
+      {# image #}
       <img class="d-block img-fluid" src="/files/{{ field.get('repeatimage').file }}" alt="First slide" width="100%">
+      {# title and caption #}
+      {% if options.title or options.caption %}
+      <div class="carousel-caption d-none d-md-block">
+          {% if options.title  %}
+          <h3>{{ field.get('repeattitle') }}</h3>
+          {% endif %}
+          {% if options.caption  %}
+          <p>{{ field.get('repeatcontent')|raw }}</p>
+          {% endif %}
+      </div>
+      {% endif %}
     </div>
     {% set active = active+1 %}
     {% endfor %}
+    
+    {# nav #}
+    {% if options.navigation %}
     <a class="carousel-control-prev" href="#carousel" role="button" data-slide="prev">
       <span class="carousel-control-prev-icon" aria-hidden="true"></span>
       <span class="sr-only">Previous</span>
@@ -19,8 +38,11 @@
       <span class="carousel-control-next-icon" aria-hidden="true"></span>
       <span class="sr-only">Next</span>
     </a>
+    {% endif %}
+    
   </div>
 </div>
 </div>
+
 {% endif %}
 

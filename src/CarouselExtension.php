@@ -41,21 +41,14 @@ class CarouselExtension extends SimpleExtension
      *
      * @return carousel
      */
-    public function carouselFunction($record, $start, $nav, $bullets, $titel, $caption)
+    public function carouselFunction($options)
     {   
-        // Loads the configuration from app/config/extensions/carousel.sablonier.yml
-        // Extension sample configuration file is config/config.yml.dist
+
         $config = $this->getConfig();
-    
-        // Mixin context from template and configuration
+
         $context = [
-            'record' => $record,
-            'type' => $config['render']['type'],
-            'start' => $start,
-            'nav' => $nav,
-            'bullets' => $bullets,
-            'titel' => $titel,
-            'caption' => $caption
+            'options' => $options,
+            'type' => $config['render']['type']
         ];
         
         switch ($config['render']['framework']) {
@@ -64,6 +57,9 @@ class CarouselExtension extends SimpleExtension
                 break;
             case 'foundation6':
                 $carousel = $this->renderTemplate('_carousel_foundation6.twig', $context);
+                break;
+            case 'purecss':
+                $carousel = $this->renderTemplate('_carousel_purecss.twig', $context);
                 break;
             default:
             echo "Not a valid configuration for getting the carousel. You need to configure 'render' 
