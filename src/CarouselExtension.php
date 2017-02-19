@@ -45,10 +45,10 @@ class CarouselExtension extends SimpleExtension
             case 'bootstrap4':
                 $carousel = $this->renderTemplate('_carousel_bootstrap4.twig', $context);
                 break;
-            /*case 'foundation6':
+            case 'foundation6':
                 $carousel = $this->renderTemplate('_carousel_foundation6.twig', $context);
                 break;
-            case 'purecss':
+            /*case 'purecss':
                 $carousel = $this->renderTemplate('_carousel_purecss.twig', $context);
                 break;*/
         }
