@@ -7,9 +7,19 @@
   <div class="carousel-inner" role="listbox">
     {% set active = options.start-1 %}
     
+    {% if options.indicators %}
+    {% set active = 0 %}
+    <ol class="carousel-indicators">
+    {% for field in attribute(carousel, options.repeatername) %}
+        <li data-target="#carousel" data-slide-to="{{active}}" {% if active == options.start %} class="active"{% endif %}></li>
+    {% set active = active + 1 %}
+    {% endfor %}
+    </ol>
+    {% endif %}
+    
     {# items #}
     {% set active = 0 %}
-    {% for field in attribute(carousel, ''~options.repeatername) %}
+    {% for field in attribute(carousel, options.repeatername) %}
     <div class="carousel-item{% if active == options.start %} active{% endif %}">
       
       {# image #}
@@ -30,7 +40,7 @@
     {% set active = active + 1 %}
     {% endfor %}
     
-    {# nav #}
+    {# navigation #}
     {% if options.navigation %}
     <a class="carousel-control-prev" href="#carousel" role="button" data-slide="prev">
       <span class="carousel-control-prev-icon" aria-hidden="true"></span>
