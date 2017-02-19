@@ -1,9 +1,14 @@
+{# bootstrap needs a unique carousel id for having more than one #}
+{# carousel on page. +1 for foundation                           #}
+
+{% set carouselid = 'carousel' ~ random() %}
+
 {% if options.type == "repeater" %}
 
 {% setcontent carousel = options.content %}
 
 <div class="d-flex p-2">
-<div id="carousel" data-interval="{% if options.autoplay %}5000{% else %}false{% endif %}" class="carousel{% if options.slide %} slide{% endif %}">
+<div id="{{ carouselid }}" data-interval="{% if options.autoplay %}5000{% else %}false{% endif %}" class="carousel{% if options.slide %} slide{% endif %}">
   <div class="carousel-inner" role="listbox">
     {% set active = options.start-1 %}
     
@@ -11,7 +16,7 @@
     {% set active = 0 %}
     <ol class="carousel-indicators">
     {% for field in attribute(carousel, options.repeatername) %}
-        <li data-target="#carousel" data-slide-to="{{active}}" {% if active == options.start %} class="active"{% endif %}></li>
+        <li data-target="#{{ carouselid }}" data-slide-to="{{active}}" {% if active == options.start %} class="active"{% endif %}></li>
     {% set active = active + 1 %}
     {% endfor %}
     </ol>
@@ -42,11 +47,11 @@
     
     {# navigation #}
     {% if options.navigation %}
-    <a class="carousel-control-prev" href="#carousel" role="button" data-slide="prev">
+    <a class="carousel-control-prev" href="#{{ carouselid }}" role="button" data-slide="prev">
       <span class="carousel-control-prev-icon" aria-hidden="true"></span>
       <span class="sr-only">Previous</span>
     </a>
-    <a class="carousel-control-next" href="#carousel" role="button" data-slide="next">
+    <a class="carousel-control-next" href="#{{ carouselid }}" role="button" data-slide="next">
       <span class="carousel-control-next-icon" aria-hidden="true"></span>
       <span class="sr-only">Next</span>
     </a>
