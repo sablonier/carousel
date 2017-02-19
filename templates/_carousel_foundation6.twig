@@ -1,0 +1,41 @@
+{% if options.type == "repeater" %}
+
+{% setcontent carousel = options.content %}
+
+{% set active = options.start-1 %}
+
+<div class="orbit" role="region" aria-label="Carousel" data-orbit>
+  <ul class="orbit-container">
+    
+    {# navigation #}
+    {% if options.navigation %}
+    <button class="orbit-previous"><span class="show-for-sr">Previous Slide</span>&#9664;&#xFE0E;</button>
+    <button class="orbit-next"><span class="show-for-sr">Next Slide</span>&#9654;&#xFE0E;</button>
+    {% endif %}
+    
+    {# items #}
+    {% set active = 0 %}
+    {% for field in attribute(carousel, options.repeatername) %}
+    <li class="{% if active == options.start %} is-active{% endif %} orbit-slide">
+      <img class="orbit-image" src="/files/{{ field.get('repeatimage').file }}" alt="Space">
+      {% if options.caption  %}
+      <figcaption class="orbit-caption">{{ field.get('repeatcontent')|raw }}</figcaption>
+      {% endif  %}
+    </li>
+    {% set active = active + 1 %}
+    {% endfor %}
+  </ul>
+  
+  {# indicators #}
+  {% if options.indicators %}
+  {% set active = 0 %}
+  <nav class="orbit-bullets">
+    {% for field in attribute(carousel, options.repeatername) %}
+    <button {% if active == options.start %}class="is-active" {% endif %}data-slide="{{active}}"><span class="show-for-sr">{{ field.get('repeattitle') }}</span>{% if active == options.start %}<span class="show-for-sr">Current Slide</span>{% endif %}</button>
+    {% set active = active + 1 %}
+    {% endfor %}
+  </nav>
+  {% endif %}
+</div>
+
+{% endif %}
