@@ -1,3 +1,4 @@
+# Options: foundation6 (default), bootstrap4
+
 render:
-    framework: bootstrap4
-    type: repeater
+    framework: foundation6
