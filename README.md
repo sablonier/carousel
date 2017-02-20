@@ -3,11 +3,15 @@ Carousel for Bolt CMS
 
 Example configuration:
 
+```
 render:
     framework: foundation6
+```
+Options: foundation6, bootstrap4, swiper
 
-Example usage:
+Example usage in templates:
 
+```
 {{ carousel({ content: '/showcase/10', 
                     type: 'repeater',
                     repeatername: 'myrepeater', 
@@ -20,3 +24,4 @@ Example usage:
                     autoplay: false
                  })
 }}
+```
