@@ -3,10 +3,12 @@
 namespace sablonier\carousel;
 
 use Bolt\Extension\SimpleExtension;
+use Bolt\Asset\File\Stylesheet;
+use Bolt\Asset\File\JavaScript;
+use Bolt\Controller\Zone;
 
 class CarouselExtension extends SimpleExtension
 {
-
     /**
      * {@inheritdoc}
      */
@@ -24,6 +26,19 @@ class CarouselExtension extends SimpleExtension
     {
         return [
             'templates'
+        ];
+    }
+    
+    protected function registerAssets()
+    {
+        $style = (new Stylesheet('css/swiper.min.css'))
+            ->setZone(Zone::FRONTEND);
+        $js = (new JavaScript('js/swiper.min.js'))
+            ->setZone(Zone::FRONTEND);
+
+        return [
+            $style,
+            $js
         ];
     }
 
@@ -48,9 +63,9 @@ class CarouselExtension extends SimpleExtension
             case 'foundation6':
                 $carousel = $this->renderTemplate('_carousel_foundation6.twig', $context);
                 break;
-            /*case 'purecss':
-                $carousel = $this->renderTemplate('_carousel_purecss.twig', $context);
-                break;*/
+            case 'swiper':
+                $carousel = $this->renderTemplate('_carousel_swiper.twig', $context);
+                break;
         }
 
         echo $carousel;
