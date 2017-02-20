@@ -1,0 +1,81 @@
+{% if options.type == "repeater" %}
+
+{% setcontent carousel = options.content %}
+
+<style>
+.swiper-container {
+        width: 100%;
+        height: 100%;
+    }
+    .swiper-slide {
+        text-align: center;
+        background: #fff;
+        /* Center slide text vertically */
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: -webkit-flex;
+        display: flex;
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
+        -webkit-justify-content: center;
+        justify-content: center;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        -webkit-align-items: center;
+        align-items: center;
+    }
+    
+    .text-container {
+        display: flex-inline;
+        text-align: center;
+        position: absolute;  
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+    }
+    
+</style>
+
+    <!-- Swiper -->
+    <div class="swiper-container">
+        <div class="swiper-wrapper">
+        
+            {# items #}
+            {% set active = 0 %}
+            {% for field in attribute(carousel, options.repeatername) %}
+                <div class="swiper-slide">
+                    <img src="/files/{{ field.get('repeatimage').file }}" alt="{{ field.get('repeattitle') }}" width="100%">
+                    <div class="text-container">
+                        {% if options.title  %}
+                        <h3>{{ field.get('repeattitle') }}</h3>
+                        {% endif %}
+                        {% if options.caption  %}
+                        <p>{{ field.get('repeatcontent')|raw }}</p>
+                        {% endif %}
+                    </div>
+                </div>
+                
+            {% set active = active + 1 %}
+            {% endfor %}
+            
+        </div>
+        <!-- Add Pagination -->
+        <div class="swiper-pagination"></div>
+        
+        <!-- Add Arrows -->
+        <div class="swiper-button-next"></div>
+        <div class="swiper-button-prev"></div>
+    </div>
+
+    <!-- Initialize Swiper -->
+    <script>
+    var swiper = new Swiper('.swiper-container', {
+        pagination: '.swiper-pagination',
+        paginationType: 'bullets',
+        paginationClickable: true,
+        initialSlide: {{ options.start }}
+    });
+    </script>
+
+{% endif %}
+
