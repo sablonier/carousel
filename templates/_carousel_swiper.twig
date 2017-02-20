@@ -5,24 +5,14 @@
 <style>
 .swiper-container {
         width: 100%;
-        height: 100%;
     }
     .swiper-slide {
-        text-align: center;
         background: #fff;
         /* Center slide text vertically */
         display: -webkit-box;
         display: -ms-flexbox;
         display: -webkit-flex;
         display: flex;
-        -webkit-box-pack: center;
-        -ms-flex-pack: center;
-        -webkit-justify-content: center;
-        justify-content: center;
-        -webkit-box-align: center;
-        -ms-flex-align: center;
-        -webkit-align-items: center;
-        align-items: center;
     }
     
     .text-container {
@@ -44,7 +34,7 @@
             {% set active = 0 %}
             {% for field in attribute(carousel, options.repeatername) %}
                 <div class="swiper-slide">
-                    <img src="/files/{{ field.get('repeatimage').file }}" alt="{{ field.get('repeattitle') }}" width="100%">
+                    <img src="/files/{{ field.get('repeatimage').file }}" alt="{{ field.get('repeattitle') }}">
                     <div class="text-container">
                         {% if options.title  %}
                         <h3>{{ field.get('repeattitle') }}</h3>
