@@ -1,4 +1,4 @@
-# Options: foundation6 (default), bootstrap4
+# Options: foundation6 (default), bootstrap4, swiper
 
 render:
-    framework: foundation6
+    wrapper: foundation6

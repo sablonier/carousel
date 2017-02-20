@@ -56,7 +56,7 @@ class CarouselExtension extends SimpleExtension
             'options' => $options,
         ];
         
-        switch ($config['render']['framework']) {
+        switch ($config['render']['wrapper']) {
             case 'bootstrap4':
                 $carousel = $this->renderTemplate('_carousel_bootstrap4.twig', $context);
                 break;
