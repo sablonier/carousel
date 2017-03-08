@@ -66,6 +66,8 @@ class CarouselExtension extends SimpleExtension
             case 'swiper':
                 $carousel = $this->renderTemplate('_carousel_swiper.twig', $context);
                 break;
+            default:
+                echo "No valid wrapper found.";
         }
 
         echo $carousel;

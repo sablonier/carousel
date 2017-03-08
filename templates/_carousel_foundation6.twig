@@ -19,7 +19,7 @@
     {% set active = 0 %}
     {% for field in attribute(carousel, options.repeatername) %}
     <li class="{% if active == options.start %} is-active{% endif %} orbit-slide">
-      <img class="orbit-image" src="/files/{{ field.get('repeatimage').file }}" alt="Space">
+      <img class="orbit-image" src="{{ paths.root }}files/{{ field.get('repeatimage').file }}" alt="Space">
       {% if options.caption  %}
       <figcaption class="orbit-caption">{{ field.get('repeatcontent')|raw }}</figcaption>
       {% endif  %}

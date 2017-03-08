@@ -34,7 +34,7 @@
             {% set active = 0 %}
             {% for field in attribute(carousel, options.repeatername) %}
                 <div class="swiper-slide">
-                    <img src="/files/{{ field.get('repeatimage').file }}" alt="{{ field.get('repeattitle') }}">
+                    <img src="{{ paths.root }}files/{{ field.get('repeatimage').file }}" alt="{{ field.get('repeattitle') }}">
                     <div class="text-container">
                         {% if options.title  %}
                         <h3>{{ field.get('repeattitle') }}</h3>

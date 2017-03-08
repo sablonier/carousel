@@ -28,7 +28,7 @@
     <div class="carousel-item{% if active == options.start %} active{% endif %}">
       
       {# image #}
-      <img class="d-block img-fluid" src="/files/{{ field.get('repeatimage').file }}" alt="{{ field.get('repeattitle') }}" width="100%">
+      <img class="d-block img-fluid" src="{{ paths.root }}files/{{ field.get('repeatimage').file }}" alt="{{ field.get('repeattitle') }}" width="100%">
       
       {# title and caption #}
       {% if options.title or options.caption %}
