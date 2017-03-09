@@ -1,6 +1,10 @@
 {% if options.type == "repeater" %}
 
-{% setcontent carousel = options.content %}
+{% if options.content is defined %}
+    {% setcontent carousel = options.content %}
+{% else %}  
+    {% set carousel = record %}
+{% endif %}
 
 <style>
 .swiper-container {

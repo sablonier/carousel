@@ -1,10 +1,12 @@
 {% set carouselid = 'carousel' ~ random() %}
 
+{% if options.content is defined %}
+    {% setcontent carousel = options.content %}
+{% else %}  
+    {% set carousel = record %}
+{% endif %}
+
 {% if options.type == "repeater" %}
-
-{% setcontent carousel = options.content %}
-
-{% set active = options.start-1 %}
 
 <div class="orbit" role="region" data-auto-play="{% if options.autoplay %}true{% else %}false{% endif %}" aria-label="Carousel" data-orbit>
   <ul class="orbit-container">

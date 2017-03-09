@@ -15,33 +15,31 @@ Options: foundation6, bootstrap4, swiper
 a) Show 'myrepeater' from **current record** in a carousel:
 
 ```
-{{ carousel({ content: app.request.getPathInfo(), 
-                    type: 'repeater',
-                    repeatername: 'myrepeater', 
-                    title: false, 
-                    caption: 'repeatcontent', 
-                    start: 1,
-                    navigation: true, 
-                    indicators: true,
-                    slide: true,
-                    autoplay: false
-                 })
+{{ carousel({ type: 'repeater',
+              repeatername: 'myrepeater', 
+              title: false, 
+              title: 'repeattitle', 
+              caption: 'repeatcontent', 
+              start: 1,
+              navigation: true, 
+              indicators: true,
+              slide: true,
+              autoplay: false })
 }}
 ```
 
-b) Show 'myrepeater' from 'showcase/10' on all pages using this template:
+b) Show 'myrepeater' from 'showcase/10', adding the `content:` option):
 
 ```
 {{ carousel({ content: '/showcase/10', 
-                    type: 'repeater',
-                    repeatername: 'myrepeater', 
-                    title: 'repeattitle', 
-                    caption: 'repeatcontent', 
-                    start: 1,
-                    navigation: true, 
-                    indicators: true,
-                    slide: true,
-                    autoplay: false
-                 })
+              type: 'repeater',
+              repeatername: 'myrepeater', 
+              title: 'repeattitle', 
+              caption: 'repeatcontent', 
+              start: 1,
+              navigation: true, 
+              indicators: true,
+              slide: true,
+              autoplay: false })
 }}
 ```

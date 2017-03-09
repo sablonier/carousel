@@ -3,9 +3,13 @@
 
 {% set carouselid = 'carousel' ~ random() %}
 
-{% if options.type == "repeater" %}
+{% if options.content is defined %}
+    {% setcontent carousel = options.content %}
+{% else %}  
+    {% set carousel = record %}
+{% endif %}
 
-{% setcontent carousel = options.content %}
+{% if options.type == "repeater" %}
 
 <div class="d-flex">
 <div id="{{ carouselid }}" data-interval="{% if options.autoplay %}5000{% else %}false{% endif %}" class="carousel{% if options.slide %} slide{% endif %}">
