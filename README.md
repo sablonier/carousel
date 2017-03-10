@@ -13,7 +13,7 @@ render:
 
 [Bootstrap 4](https://v4-alpha.getbootstrap.com/components/carousel/): Bootstrap 4 alpha 6 carousel, needs bootstrap 4 js/css included in templates
 
-[Swiper](http://idangero.us/swiper/): Some kind of a fallback in case foundation nor bootstrap is not available
+[Swiper](http://idangero.us/swiper/): Some kind of a fallback in case foundation or bootstrap is not available
 
 ####Carousel options, example usage in templates
 
